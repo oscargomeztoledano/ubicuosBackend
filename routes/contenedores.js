@@ -8,7 +8,7 @@ mongoose.set("strictQuery", false);
 var db = mongoose.connection;
 
 
-// GET /contenedores
+// GET all contenedores
 router.get("/", function (req, res) {
     contenedores.find().then(function(contenedores){
       res.status(200).json(contenedores)
@@ -18,5 +18,14 @@ router.get("/", function (req, res) {
       debug("error /contenedores");
     });
   });
-
+//GET contenedores by id
+router.get("/:id", function (req, res) {
+    contenedores.findById(req.params.id).then(function(contenedores){
+      res.status(200).json(contenedores)
+      debug("GET /contenedores/:id");
+    }).catch(function(err){
+      res.status(500).send(err)
+      debug("error /contenedores/:id");
+    });
+  });
 module.exports = router;
