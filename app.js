@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var contenesoresRouter = require('./routes/contenedores');
 var contaminacionAcusticaRouter = require('./routes/contaminacionAcustica');
 var instalacionesFotovoltaicasRouter = require('./routes/instalacionesFotovoltaicas');
+var bicicletasDisponiblesRouter = require('./routes/bicicletasDisponibles');
 
 var app = express();
 mongoose.connect(
@@ -36,7 +37,7 @@ app.use('/users', usersRouter);
 app.use("/contenedores", contenesoresRouter);
 app.use("/contaminacionacustica", contaminacionAcusticaRouter);
 app.use("/instalacionesfotovoltaicas", instalacionesFotovoltaicasRouter);
-
+app.use("/bicicletasdisponibles", bicicletasDisponiblesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
