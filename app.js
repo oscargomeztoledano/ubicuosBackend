@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contenesoresRouter = require('./routes/contenedores');
 var contaminacionAcusticaRouter = require('./routes/contaminacionAcustica');
+var instalacionesFotovoltaicasRouter = require('./routes/instalacionesFotovoltaicas');
 
 var app = express();
 mongoose.connect(
@@ -34,6 +35,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/contenedores", contenesoresRouter);
 app.use("/contaminacionacustica", contaminacionAcusticaRouter);
+app.use("/instalacionesfotovoltaicas", instalacionesFotovoltaicasRouter);
 
 
 // catch 404 and forward to error handler
