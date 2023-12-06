@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
 var contenedoresSchema = new schema({
-    id: Number,
+    codigo: Number,
     tipo: String,
     descripcion: String,
     cantidad: Number,
