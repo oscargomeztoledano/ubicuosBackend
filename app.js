@@ -18,7 +18,7 @@ var aforoBicicletasRouter = require('./routes/aforoBicicletas');
 
 var app = express();
 mongoose.connect(
-    "mongodb+srv://oscargomez1ari:1234@clusterubicuos.qm4rldd.mongodb.net/proyectoUbicuos",
+   process.env.URL,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => debug("MongoDB Atlas DataBase connection successful"))
