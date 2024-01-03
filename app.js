@@ -3,21 +3,32 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose=require("mongoose");
-var debug = require('debug')('ubicuosBackend:server');
-var cors = require('cors');  
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var contenesoresRouter = require('./routes/contenedores');
 var contaminacionAcusticaRouter = require('./routes/contaminacionAcustica');
 var instalacionesFotovoltaicasRouter = require('./routes/instalacionesFotovoltaicas');
 var bicicletasDisponiblesRouter = require('./routes/bicicletasDisponibles');
 var aforoPersonasRouter = require('./routes/aforoPersonas');
 var aforoBicicletasRouter = require('./routes/aforoBicicletas');
-require('dotenv').config();
+
+var usersRouter = require('./routes/users');
 
 var app = express();
+
+var debug = require('debug')('ubicuosBackend:server');
+
+
+var bodyParser  = require("body-parser");   //nuevo
+var cors = require('cors');   //nuevo
+app.use(cors());  //nuevo
+app.use(bodyParser.json({limit: '50mb'}));  //nuevo
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));   //nuevo
+
+var mongoose=require("mongoose");
+
+require('dotenv').config();
+
 mongoose.connect(
   process.env.URL,
     { useNewUrlParser: true, useUnifiedTopology: true }
@@ -28,7 +39,7 @@ mongoose.connect(
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(cors( {origin: process.env.FRONTEND_URL}));  //nuevo
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
