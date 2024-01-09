@@ -18,15 +18,6 @@ router.get("/", function (req, res) {
     });
   });
 
-//GET contaminacionAcustica by id
-router.get("/:id", function (req, res) {
-    contaminacionAcustica.findById(req.params.id).then(function(contaminacionAcustica){
-      res.status(200).json(contaminacionAcustica)
-      debug("GET /contaminacionAcustica/:id");
-    }).catch(function(err){
-      res.status(500).send(err)
-      debug("error /contaminacionAcustica/:id");
-    });
-  });
+
 
 module.exports = router;

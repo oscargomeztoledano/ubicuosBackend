@@ -4,15 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
 var contenesoresRouter = require('./routes/contenedores');
 var contaminacionAcusticaRouter = require('./routes/contaminacionAcustica');
 var instalacionesFotovoltaicasRouter = require('./routes/instalacionesFotovoltaicas');
-var bicicletasDisponiblesRouter = require('./routes/bicicletasDisponibles');
 var aforoPersonasRouter = require('./routes/aforoPersonas');
 var aforoBicicletasRouter = require('./routes/aforoBicicletas');
 
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -46,12 +43,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use("/contenedores", contenesoresRouter);
 app.use("/contaminacionacustica", contaminacionAcusticaRouter);
 app.use("/instalacionesfotovoltaicas", instalacionesFotovoltaicasRouter);
-app.use("/bicicletasdisponibles", bicicletasDisponiblesRouter);
 app.use("/aforopersonas", aforoPersonasRouter);
 app.use("/aforobicicletas", aforoBicicletasRouter);
 

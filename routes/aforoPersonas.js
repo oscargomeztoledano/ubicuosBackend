@@ -17,14 +17,5 @@ router.get("/", function (req, res) {
       debug("error /aforoPersonas");
     });
   });
-//GET aforoPersonas by id
-router.get("/:id", function (req, res) {
-    aforoPersonas.findById(req.params.id).then(function(aforoPersonas){
-      res.status(200).json(aforoPersonas)
-      debug("GET /aforoPersonas/:id");
-    }).catch(function(err){
-      res.status(500).send(err)
-      debug("error /aforoPersonas/:id");
-    });
-  });
+
 module.exports = router;

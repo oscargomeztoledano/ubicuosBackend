@@ -17,14 +17,5 @@ router.get("/", function (req, res) {
       debug("error /instalacionesFotovoltaicas");
     });
   });
-//GET instalacionesFotovoltaicas by id
-router.get("/:id", function (req, res) {
-    instalacionesFotovoltaicas.findById(req.params.id).then(function(instalacionesFotovoltaicas){
-      res.status(200).json(instalacionesFotovoltaicas)
-      debug("GET /instalacionesFotovoltaicas/:id");
-    }).catch(function(err){
-      res.status(500).send(err)
-      debug("error /instalacionesFotovoltaicas/:id");
-    });
-  });
+
 module.exports = router;

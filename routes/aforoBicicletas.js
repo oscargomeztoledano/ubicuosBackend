@@ -17,14 +17,5 @@ router.get("/", function (req, res) {
       debug("error /aforoBicicletas");
     });
   });
-//GET aforoBicicletas by id
-router.get("/:id", function (req, res) {
-    aforoBicicletas.findById(req.params.id).then(function(aforoBicicletas){
-      res.status(200).json(aforoBicicletas)
-      debug("GET /aforoBicicletas/:id");
-    }).catch(function(err){
-      res.status(500).send(err)
-      debug("error /aforoBicicletas/:id");
-    });
-  });
+
 module.exports = router;
